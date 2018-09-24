@@ -1,7 +1,31 @@
 <body>
     <div class="container">
       <header>
-        <h1>Todo List</h1>
+        <h1>EIT Database Application</h1>
+
+        <form class="new-eit">
+          <label>
+          <input type="text" name="text" placeholder="Enter Firstname" />
+        </label>
+
+        <label>
+            <input type="text" name="text" placeholder="Enter Surname" />
+          </label>
+
+          <label>
+            Gender:
+              <select name="gender">
+                <option label="Female">Female </option>
+                <option label="Male">Male </option>
+              </select>
+            </label>
+
+          <label>
+              <input type="date" name="bday">
+          </label>
+      
+          <input type="submit" value="Add EIT">
+        </form>
       </header>
    
       <ul>
@@ -13,5 +37,5 @@
   </body>
    
   <template name="eit">
-    <li>{{text}}</li>
+    <li>{{firstname}} {{surname}} {{gender}} {{dob}}</li>
   </template>
