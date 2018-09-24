@@ -1,0 +1,56 @@
+
+
+<body>
+    <div class="container">
+      <header>
+        <h1>EIT Database Application</h1>
+
+        <label class="delete">
+          <input type="submit" class="submit" placeholder="submit" value="Delete"/>
+        </label>
+
+      <form class="new-eit">
+        <label>
+          Firstname:
+          <input type="text" name="firstname" placeholder="Type Firstname" />
+        </label> <br> <br>
+
+        <label>
+          Surname:
+            <input type="text" name="surname" placeholder="Type Surname" />
+          </label> <br><br>
+
+          <label>
+              Gender:
+              &nbsp; &nbsp;
+              <!-- <input type="text" name="gender" placeholder="Type gender" /> -->
+              <select name="gender">
+                  <option label="Female">Female </option>
+                  <option label="Male">Male </option>
+              </select>
+            </label> <br><br>
+        
+            <label>
+                DOB:
+                <!-- <input type="text" name="surname" placeholder="Type surname" /> -->
+                <input type="date" name="dob" value="2000-12-31"
+                min="1880-01-01" max="2000-12-31" />
+              </label> <br>
+
+        <input type="submit" class="submit" placeholder="submit" value="Add EIT"/>
+    </form>
+      </header>
+  
+      <ul>
+        {{#each eits}}
+          {{> eit}}
+        {{/each}}
+      </ul>
+    </div>
+</body>
+  
+<!-- <template name="eit">
+  <li>{{firstname}} {{surname}} {{gender}} {{dob}}</li>
+</template>
+   -->
+  
