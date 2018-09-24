@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
  
 import { Eits } from '../api/eits.js';
 
+import './task.js';
 import './body.html';
  
 Template.body.helpers({
