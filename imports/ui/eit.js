@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
  
 import { Eits } from '../api/eits.js';
@@ -8,13 +9,14 @@ import './eit.html';
 Template.eit.events({
   'click .toggle-checked'() {
     // Set the checked property to the opposite of its current value
-    Eits.update(this._id, {
-      $set: { checked: ! this.checked },
-    });
-  // },
+    // Eits.update(this._id, {
+    //   $set: { checked: ! this.checked },
+    // });
+    Meteor.call('eits.setChecked', this._id, !this.checked);
+  },
   // 'click .delete'() {
   //   Eits.remove(this._id);
-  },
+  // },
   'click .edit'(){
     // fetch data
     Eits.find(this._id);

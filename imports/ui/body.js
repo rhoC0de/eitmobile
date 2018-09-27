@@ -20,10 +20,15 @@ Template.body.events({
    
       // Get value from form element
     const target = event.target;
-    const firstname = target.firstname.value;
-    const surname = target.surname.value;
-    const gender = target.gender.value;
-    const dob = target.dob.value;
+    const eitData = {
+      firstname: target.firstname.value,
+      surname: target.surname.value,
+      gender: target.gender.value,
+      dob: target.dob.value,
+      createdAt: new Date(),
+      owner: Meteor.userId(),
+      username: Meteor.user().username,
+    }
    
       // Insert a task into the collection
       // if(arr.length){
@@ -47,7 +52,8 @@ Template.body.events({
       //       username: Meteor.user().username,
       //   });
       // }
-      Meteor.call('tasks.insert', text);
+      // var eitData=[firstname,surname,gender,dob,createdAt,owner,username,];
+      Meteor.call('eits.insert',eitData);
    
       // Clear form
     target.firstname.value = '';
@@ -61,8 +67,12 @@ Template.body.events({
     'click .delete'() {
       //Find checked eits
         Eits.find({checked: true}).forEach(function(eit){
+        //  Meteor.call('eits.find',eitData);
           //Remove checked eits
-          Eits.remove(eit._id);
+          // Eits.remove(Eits._id);
+          const eitId = eit._id
+          Meteor.call('eits.remove',eitId);
         });
+        
       }    
     });
