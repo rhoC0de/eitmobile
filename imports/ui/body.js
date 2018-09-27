@@ -1,4 +1,4 @@
-
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
  
 import { Eits } from '../api/eits.js';
@@ -43,6 +43,8 @@ Template.body.events({
             gender,
             dob,
             createdAt: new Date(), // current time
+            owner: Meteor.userId(),
+            username: Meteor.user().username,
         });
       }
    
