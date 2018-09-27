@@ -26,27 +26,28 @@ Template.body.events({
     const dob = target.dob.value;
    
       // Insert a task into the collection
-      if(arr.length){
-        Eits.update({_id: arr[0]},{
-            firstname,
-            surname,
-            gender,
-            dob,
-            createdAt: new Date(), // current time
-        });
-        arr.length = 0;
-      }
-      else{
-        Eits.insert({
-            firstname,
-            surname,
-            gender,
-            dob,
-            createdAt: new Date(), // current time
-            owner: Meteor.userId(),
-            username: Meteor.user().username,
-        });
-      }
+      // if(arr.length){
+      //   Eits.update({_id: arr[0]},{
+      //       firstname,
+      //       surname,
+      //       gender,
+      //       dob,
+      //       createdAt: new Date(), // current time
+      //   });
+      //   arr.length = 0;
+      // }
+      // else{
+      //   Eits.insert({
+      //       firstname,
+      //       surname,
+      //       gender,
+      //       dob,
+      //       createdAt: new Date(), // current time
+      //       owner: Meteor.userId(),
+      //       username: Meteor.user().username,
+      //   });
+      // }
+      Meteor.call('tasks.insert', text);
    
       // Clear form
     target.firstname.value = '';
