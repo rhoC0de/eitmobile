@@ -1,9 +1,11 @@
 <template name="eit">
         <li class="{{#if checked}}checked{{/if}}">
-          <button class="delete">&times;</button>
+           
+          <!-- <button class="delete">&times;</button> -->
        
           <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-       
+          
           <span class="text">{{firstname}} {{surname}} {{gender}} {{dob}}</span>
+          <button class="edit">&#9998;</button>
         </li>
       </template>

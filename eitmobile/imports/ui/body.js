@@ -2,8 +2,9 @@
 import { Template } from 'meteor/templating';
  
 import { Eits } from '../api/eits.js';
+import {arr} from '../api/const.js'; 
 
-import './task.js';
+import './eit.js';
 import './body.html';
  
 Template.body.helpers({
@@ -25,13 +26,25 @@ Template.body.events({
     const dob = target.dob.value;
    
       // Insert a task into the collection
-      Eits.insert({
-        firstname,
-        surname,
-        gender,
-        dob,
-        createdAt: new Date(), // current time
-    });
+      if(arr.length){
+        Eits.update({_id: arr[0]},{
+            firstname,
+            surname,
+            gender,
+            dob,
+            createdAt: new Date(), // current time
+        });
+        arr.length = 0;
+      }
+      else{
+        Eits.insert({
+            firstname,
+            surname,
+            gender,
+            dob,
+            createdAt: new Date(), // current time
+        });
+      }
    
       // Clear form
     target.firstname.value = '';
@@ -40,3 +53,13 @@ Template.body.events({
     target.dob.value = '';
     },
   });
+
+  Template.body.events({
+    'click .delete'() {
+      //Find checked eits
+        Eits.find({checked: true}).forEach(function(eit){
+          //Remove checked eits
+          Eits.remove(eit._id);
+        });
+      }    
+    });

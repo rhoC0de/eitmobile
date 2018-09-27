@@ -66,16 +66,33 @@ ul {
   padding: 0;
   background: white;
 }
+.Add-EIT{
+  background-color: white;
 
-.delete {
+}
+.delete{
+  background-color: rgb(241, 115, 115);
+  float: right;
+}
+.delete-div{
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.edit{
+  float: right;
+  border: none;
+  background: none;
+  margin-right: 10px
+}
+/* .delete {
   float: right;
   font-weight: bold;
   background: none;
   font-size: 1em;
   border: none;
   position: relative;
-}
- 
+} */
 li {
   position: relative;
   list-style: none;

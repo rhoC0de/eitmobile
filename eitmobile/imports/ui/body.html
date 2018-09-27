@@ -1,41 +1,60 @@
 <body>
     <div class="container">
-      <header>
+    <header>
         <h1>EIT Database Application</h1>
 
-        <form class="new-eit">
-          <label>
-          <input type="text" name="firstname" placeholder="Enter Firstname" />
+      <form class="new-eit">
+        <label>
+          <input type="text" name="firstname" placeholder="Enter Firstname"/>
         </label>
 
         <label>
-            <input type="text" name="surname" placeholder="Enter Surname" />
-          </label>
+            <input type="text" name="surname" placeholder="Enter Surname"/>
+        </label>
 
-          <label>
-            Gender:
-              <select name="gender">
-                <option label="Female">Female </option>
-                <option label="Male">Male </option>
-              </select>
-            </label>
+        <label>
+          Gender:
+          <select name="gender">
+            <option label="Female">Female </option>
+            <option label="Male">Male </option>
+          </select>
+        </label>
 
-          <label>
-              <input type="date" name="dob">
-          </label>
+        <label>
+          <input type="date" name="dob">
+        </label>
+
+        <label>
+          <input type="submit" value="Add EIT" class="Add-EIT">
+        </label>
+
+      </form>
+    </header>
+    
+    <div class="delete-div">
+      <button class="delete">Delete</button>
+    </div>
       
-          <input type="submit" value="Add EIT">
-        </form>
-      </header>
-   
-      <ul>
+    <ul>
         {{#each eits}}
           {{> eit}}
         {{/each}}
       </ul>
+
+      <!-- <ul>
+        <table style="width:100%">
+          <tr>
+            <th>Firstname</th>
+            <th>Surname</th> 
+            <th>Gender</th>
+            <th>D.O.B</th>
+          </tr>
+          <tr>
+            <td>Jill</td>
+            <td>Smith</td> 
+            <td>50</td>
+          </tr>
+        </table>
+      </ul> -->
     </div>
   </body>
-   
-  <template name="eit">
-    <li>{{firstname}} {{surname}} {{gender}} {{dob}}</li>
-  </template>
